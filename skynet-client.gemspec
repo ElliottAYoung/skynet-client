@@ -1,11 +1,12 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'skynet/client/version'
+require 'skynet/version'
+require 'skynet/client'
 
 Gem::Specification.new do |spec|
   spec.name          = "skynet-client"
-  spec.version       = Skynet::Client::VERSION
+  spec.version       = Skynet::VERSION
   spec.authors       = ["ElliottAYoung"]
   spec.email         = ["elliott.a.young@gmail.com"]
 
@@ -25,4 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "pry"
+
+  spec.add_dependency "faraday", "~> 0.12"
 end
