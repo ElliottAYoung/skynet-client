@@ -1,5 +1,3 @@
-require 'JSON'
-
 module Skynet
   class Response
     attr_reader :raw_headers, :contents, :status
