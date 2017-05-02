@@ -1,22 +1,25 @@
+require 'JSON'
+
 module Skynet
   class Response
-    attr_reader :raw_headers, :contents, :errors, :status
+    attr_reader :raw_headers, :contents, :status
 
     def initialize(args = {})
-      @contents = args[:contents]
-      @raw_headers = args[:headers]
       @status = args[:status]
-      @errors = find_errors
-    end
-
-    def is_error?
-      @status >= 400 || (@contents.is_a?(Hash) && @contents.errors?)
+      @raw_headers = args[:headers]
+      @contents = parsed_contents(args[:contents], args[:error])
     end
 
     private
 
-    def find_errors
-      []
+    def parsed_contents(contents, error)
+      return [error] if @status >= 400
+
+      begin
+        JSON.parse(contents)
+      rescue JSON::ParserError => e
+        [contents]
+      end
     end
   end
 end

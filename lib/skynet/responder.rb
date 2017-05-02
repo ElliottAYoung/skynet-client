@@ -8,10 +8,11 @@ module Skynet
         Skynet::Response.new({
           status: response.status,
           contents: response.body,
-          headers: response.headers
+          headers: response.headers,
+          error: response.reason_phrase
         })
       else
-        raise SkynetResponseError "An unknown problem has occurred"
+        raise SkynetResponseError response.body
       end
     end
   end
