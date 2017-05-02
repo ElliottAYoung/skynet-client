@@ -1,5 +1,3 @@
-require_relative "errors/skynet_response_error"
-
 module Skynet
   module Responder
     def self.parse(response)
@@ -12,7 +10,7 @@ module Skynet
           error: response.reason_phrase
         })
       else
-        raise SkynetResponseError response.body
+        raise SkynetResponseError
       end
     end
   end

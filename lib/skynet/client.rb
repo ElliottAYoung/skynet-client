@@ -4,6 +4,10 @@ require "skynet/response"
 require "skynet/responder"
 require "skynet/splitter"
 
+require "skynet/errors/skynet_response_error"
+require "skynet/errors/skynet_method_error"
+
+
 module Skynet
   class Client
     attr_reader :access_code, :skynet_url

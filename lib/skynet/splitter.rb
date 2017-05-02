@@ -1,5 +1,3 @@
-require_relative "errors/skynet_method_error"
-
 module Skynet
   module Splitter
     def self.clean(path_info)
