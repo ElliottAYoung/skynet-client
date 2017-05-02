@@ -1,7 +1,8 @@
 require "skynet/accessor"
-require "skynet/splitter"
-require "skynet/responder"
+require "skynet/identifier"
 require "skynet/response"
+require "skynet/responder"
+require "skynet/splitter"
 
 module Skynet
   class Client

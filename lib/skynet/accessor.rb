@@ -24,7 +24,7 @@ module Skynet
       def access_skynet(path_info, args)
         method, path = Skynet::Splitter.clean(path_info)
 
-        @conn.send(method, *[path, args])
+        @conn.send(method, *Skynet::Identifier.identify(path, args))
       end
     end
   end
