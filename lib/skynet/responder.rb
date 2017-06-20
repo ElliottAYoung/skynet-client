@@ -6,8 +6,7 @@ module Skynet
         Skynet::Response.new({
           status: response.status,
           contents: response.body,
-          headers: response.headers,
-          error: response.reason_phrase
+          headers: response.headers
         })
       else
         raise SkynetResponseError
